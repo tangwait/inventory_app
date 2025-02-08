@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Inventory</title>
+</head>
+<body>
+    <h1>Farm Inventory</h1>
+    <%- include("partials/header.ejs") %>
+    <form action="add-to-inv" method="post">
+        <label for="farm-element">Farm Element</label>
+        <input type="text" name="farm-element" placeholder="Shovel" required>
+        <label for="farm-desc">Description</label>
+        <input type="text" name="farm-desc" placeholder="Tool to dig up dirt" required>
+    </form>
+</body>
+</html>
