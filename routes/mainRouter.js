@@ -6,6 +6,7 @@ const invController = require("../controllers/invController");
 mainRouter.get("/", homeController.loadHome)
 mainRouter.get("/inventory", invController.getInventory);
 
+mainRouter.post("/deleteItem", invController.deleteItem);
 
 
 

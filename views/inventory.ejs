@@ -23,7 +23,15 @@
         <ul>
             <% if (Array.isArray(items) && items.length > 0) { %>
                 <% items.forEach(item => { %>
-                    <li>ID: <%= item.id %>, Item: <%= item.name %>, Created by: <%= item.creator %></li>
+                    <li>
+                        ID: <%= item.id %>, 
+                        Item: <%= item.name %>, 
+                        Created by: <%= item.creator %>
+                        <form action="/deleteItem" method="POST">
+                            <input type="hidden" name="id" value="<%= item.id %>">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
                 <% }); %>
             <% } else { %>
                 <li>No items in inventory.</li>

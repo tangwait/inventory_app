@@ -5,11 +5,17 @@ async function getInventory(req, res) {
     res.render("inventory", { items });
 }
 
-
+async function deleteItem(req, res) {
+    const itemToDelete = req.body.id;
+    
+    await db.deleteItemFromDB(itemToDelete);
+    res.redirect("/inventory");
+}
 
 
 
 
 module.exports = {
-    getInventory
+    getInventory,
+    deleteItem
 };
