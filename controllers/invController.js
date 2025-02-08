@@ -12,10 +12,16 @@ async function deleteItem(req, res) {
     res.redirect("/inventory");
 }
 
+async function addItem(req, res) {
+    const { 'item-name': name, 'created-by': creator} = req.body;
+    await db.addItemToDB(name, creator);
+    res.redirect("/inventory");
+}
 
 
 
 module.exports = {
     getInventory,
-    deleteItem
+    deleteItem,
+    addItem
 };

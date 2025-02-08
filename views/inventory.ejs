@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farm Inventory</title>
+    <link rel="stylesheet" href="/headers.css">
+    <link rel="stylesheet" href="/inventory.css">
+
 </head>
 <body>
     <h1>Farm Inventory</h1>
     <%- include("partials/header") %>
 
-    <form action="add-to-inv" method="POST">
-        <label for="farm-element">Farm Element</label>
-        <input type="text" name="farm-element" placeholder="Shovel" required>
+    <form action="/addItem" method="POST">
+        <label for="item-name">Farm Item</label>
+        <input type="text" name="item-name" placeholder="Shovel" required>
         
         <label for="created-by">Created by</label>
         <input type="text" name="created-by" placeholder="Tony" required>
