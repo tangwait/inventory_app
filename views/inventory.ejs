@@ -7,12 +7,29 @@
 </head>
 <body>
     <h1>Farm Inventory</h1>
-    <%- include("partials/header.ejs") %>
-    <form action="add-to-inv" method="post">
+    <%- include("partials/header") %>
+
+    <form action="add-to-inv" method="POST">
         <label for="farm-element">Farm Element</label>
         <input type="text" name="farm-element" placeholder="Shovel" required>
-        <label for="farm-desc">Description</label>
-        <input type="text" name="farm-desc" placeholder="Tool to dig up dirt" required>
+        
+        <label for="created-by">Created by</label>
+        <input type="text" name="created-by" placeholder="Tony" required>
+
+        <button type="submit">Submit</button>
     </form>
+
+    <div class="inventory_items">
+        <ul>
+            <% if (Array.isArray(items) && items.length > 0) { %>
+                <% items.forEach(item => { %>
+                    <li>ID: <%= item.id %>, Item: <%= item.name %>, Created by: <%= item.creator %></li>
+                <% }); %>
+            <% } else { %>
+                <li>No items in inventory.</li>
+            <% } %>
+        </ul>
+        
+    </div>
 </body>
 </html>
