@@ -1,9 +1,7 @@
 const { Pool } = require("pg");
+require("dotenv").config();
 
 module.exports = new Pool({
-    host: "localhost",
-    user: "tangwai",
-    password: "tangwai-examples",
-    database: "inventory_db",
-    port: 5432,
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
 })

@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-
+require("dotenv").config();
 const { Client } = require("pg");
 
 const SQL = `
@@ -20,7 +20,8 @@ ON CONFLICT (name) DO NOTHING;
 async function main() {
     console.log("seeding...");
     const client = new Client({
-      connectionString: "postgresql://tangwai:tangwai-examples@localhost:5432/inventory_db",
+      connectionString: process.env.DATABASE_URL,
+      ssl: process.env.DATABASE_URL.includes("render.com") ? { rejectUnauthorized: false } : false,
     });
     await client.connect();
     await client.query(SQL);
